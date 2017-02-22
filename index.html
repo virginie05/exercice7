@@ -8,15 +8,18 @@
         <form>
             <label for="pointure">Pointure : </label><input type="text" id="pointure" name="pointure"/><br/>
             <label for="annee">Année de naissance : </label><input type="text" id="annee" name="annee"/><br/>
-            <button id="valider" onclick="calcul()" name="valider">Valider</button>
+            <button id="valider" onclick="alert(calcul());" name="valider">Valider</button>
         </form>
         <script>
-          function calcul()
-          {
+          function calcul(){
             var cut= document.getElementById('pointure').value;
             var cut2= document.getElementById('annee').value;
-	          var nombre = (cut *+ 2 + 5) * 50 - 1983 + 1766;
-            alert(nombre);
+            if (isNaN(cut) || isNaN (cut2) || cut == '' || cut2 == ''){
+              return'Merci d\'entrer un chiffre';
+            }else{
+	          var result = (cut *+ 2 + 5) * 50 - cut2 + 1766;
+            }
+            return result;
           }
         </script>
     </body>
